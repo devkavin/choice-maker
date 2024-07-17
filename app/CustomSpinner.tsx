@@ -15,7 +15,6 @@ export default function CustomSpinnerPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4 lg:p-24">
-      <h1 className="text-4xl font-bold mb-8">Custom Choice Maker</h1>
       <div className="mb-4">
         <input
           type="text"

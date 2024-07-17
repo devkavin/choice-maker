@@ -1,5 +1,8 @@
 "use client";
+import CustomSpinnerPage from "./CustomSpinner";
 import SpinnerPage from "./SpinnerPage";
+import Navbar from "./Navbar";
+import { useState } from "react";
 
 export default function Home() {
   const spinnerOptions = [
@@ -13,10 +16,19 @@ export default function Home() {
     "Watch a trashy movie",
   ];
 
+  const [activeSpinner, setActiveSpinner] = useState<string>("default");
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-4 lg:p-24">
-      <h1 className="text-4xl font-bold mb-8">Choice Maker</h1>
-      <SpinnerPage spinnerOptions={spinnerOptions} />
-    </main>
+    <div>
+      <Navbar setActiveSpinner={setActiveSpinner} />
+      <main className="flex min-h-screen flex-col items-center justify-between p-4 lg:p-24">
+        <h1 className="text-4xl font-bold mb-8">Choice Maker</h1>
+        {activeSpinner === "default" ? (
+          <SpinnerPage spinnerOptions={spinnerOptions} />
+        ) : (
+          <CustomSpinnerPage />
+        )}
+      </main>
+    </div>
   );
 }
