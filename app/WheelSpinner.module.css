@@ -1,0 +1,42 @@
+.wheel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Adjust as needed */
+}
+
+.wheel {
+  position: relative;
+  width: 300px; /* Adjust size as needed */
+  height: 300px; /* Adjust size as needed */
+  border: 2px solid #000; /* Border for the spinner */
+  border-radius: 50%; /* Makes the spinner circular */
+  overflow: hidden; /* Ensures options don't overflow */
+  transition: transform 4s cubic-bezier(0.42, 0, 0.58, 1); /* Smooth rotation */
+}
+
+.wheel.spinning {
+  transform: rotate(calc(var(--selected-item) * 1turn / var(--nb-item)));
+}
+
+.wheel-item {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 0;
+  left: 50%;
+  transform-origin: 0 100%;
+  text-align: right;
+  padding-right: 10px;
+  box-sizing: border-box;
+  backface-visibility: hidden; /* Ensures smooth rendering */
+  font-weight: bold;
+  color: #fff; /* Text color */
+  background: #3498db; /* Background color for options */
+  border: 1px solid #2980b9; /* Border color for options */
+}
+
+.wheel-item:nth-child(even) {
+  background: #9b59b6; /* Alternate background color */
+  border-color: #8e44ad; /* Alternate border color */
+}
